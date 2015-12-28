@@ -1,0 +1,53 @@
+language: node_js
+
+os:
+  - linux
+
+# not rly required but "trusty" currently implies "sudo" for no reason
+sudo: required
+
+dist: trusty
+
+addons:
+  apt:
+    packages:
+    - build-essential
+    - python2.7
+    - git
+    - pkg-config
+    - libnss3-dev
+    - libasound2-dev
+    - libpulse-dev
+    - libjpeg62-dev
+    - libxv-dev
+    - libgtk2.0-dev
+    - libexpat1-dev
+    - default-jdk
+    - libxtst-dev
+    - libxss-dev
+    - libpci-dev
+    - libgconf2-dev
+    - libgnome-keyring-dev
+    - libudev-dev
+
+node_js:
+  - "4.1"
+  - "4.0"
+  - "0.12"
+  - "0.11"
+  - "0.10"
+  - "0.8"
+  - "0.6"
+  - "iojs"
+
+env:
+  global:
+    - export BUILD_WEBRTC=true
+
+cache:
+  directories:
+    - third_party
+
+script:
+  - travis_wait npm install
+  - npm test
