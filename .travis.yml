@@ -50,4 +50,8 @@ cache:
 
 script:
   - travis_wait npm install
+
+# if something fails here the test will
+# still be marked as "passed"
+after_script:
   - npm test
