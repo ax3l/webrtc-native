@@ -31,25 +31,35 @@ addons:
     - libudev-dev
 
 node_js:
+  - "5"
+  - "5.1"
+  - "4"
+  - "4.2"
   - "4.1"
   - "4.0"
   - "0.12"
   - "0.11"
   - "0.10"
-  - "0.8"
-  - "0.6"
+  # "latest" versions below ;)
+  - "node"
   - "iojs"
 
 env:
   global:
     - export BUILD_WEBRTC=true
 
+#matrix:
+#  allow_failures:
+#  # looks broken on travis-ci itself
+#  - node_js: "0.8"
+#  - node_js: "0.6"
+
 cache:
   directories:
     - third_party
 
 script:
-  - travis_wait npm install
+  - travis_wait 50 npm install
 
 # if something fails here the test will
 # still be marked as "passed"

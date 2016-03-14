@@ -21,6 +21,7 @@
     "test": "node test/all.js"
   },
   "dependencies": {
+    "lifecycle": "^1.0.4",
     "request": "^2.58.0"
   },
   "devDependencies": {
